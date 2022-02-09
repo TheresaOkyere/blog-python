@@ -1,15 +1,15 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, url_for
 
 auth = Blueprint("auth", __name__)
 
 @auth.route("/login")
 def home():
-    return "login"
+    return render_template("login.html")
 
 @auth.route("/sign-up")
 def sign_up():
-    return "sign up"
+    return render_template("signup.html")
 
 @auth.route("/sign-out")
 def sign_out():
-    return "sign out"
+    return redirect(url_for("views.home"))
